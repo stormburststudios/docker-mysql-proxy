@@ -46,14 +46,10 @@ jobs:
 
       - name: "Setup: Checkout Source"
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            mysql-proxy
 
       - name: "Build: Build & Push Image"
         uses: docker/build-push-action@v5
         with:
-          context: mysql-proxy
           target: mysql-proxy
           platforms: ${{ !env.ACT && 'linux/amd64,linux/arm64' || 'linux/amd64' }}
           pull: true
