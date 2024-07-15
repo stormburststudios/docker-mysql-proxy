@@ -20,7 +20,7 @@ concurrency:
 jobs:
   mysql-proxy-build:
     name: "Build"
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNS_ON }}
     steps:
       - uses: benzine-framework/action-setup-docker@main
         with:
