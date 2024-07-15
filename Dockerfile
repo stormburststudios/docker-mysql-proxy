@@ -5,8 +5,11 @@ LABEL maintainer="Matthew Baggett <matthew@baggett.me>" \
       org.opencontainers.image.source="https://github.com/benzine-framework/docker-mysql-proxy"
 
 ENV MYSQL_PROXY_VERSION=0.8.5 \
-    MYSQL_PROXY_TAR_NAME=mysql-proxy-$MYSQL_PROXY_VERSION-linux-debian6.0-x86-64bit \
     DEBIAN_FRONTEND=noninteractive
+
+# This ENV must come after the first since it is using a derived variable
+ENV MYSQL_PROXY_TAR_NAME=mysql-proxy-$MYSQL_PROXY_VERSION-linux-debian6.0-x86-64bit
+
 
 RUN adduser mysql && \
     apt-get update && \
