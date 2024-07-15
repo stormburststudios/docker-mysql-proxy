@@ -2,3 +2,4 @@
 /vendor/
 /.secrets
 /.github/cache
+/.github/act.secrets
